@@ -15,6 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 #
 # COPY ___________ .
 
+# This line docuemnts which network port Flask is listening on inside the container. 
+# When the container is ran, Docker will know to forward traffic from the host machine to this port inside the container.
 EXPOSE 5000
 
 # Check that Flask is up and can reach the database.

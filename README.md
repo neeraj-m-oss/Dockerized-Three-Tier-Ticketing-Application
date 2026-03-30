@@ -1,8 +1,8 @@
 INET4031 Test Lab 12
 
-This project contains a multi-service Docker application:
-- Apache web server
-- Flask application
+This project is a multi-service Docker application including:
 - MariaDB database
+- Flask backend
+- Apache web server
 
-Completed as part of lab requirements.
+Completed successfully as part of the lab requirements.

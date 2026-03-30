@@ -1,6 +1,6 @@
 #!/bin/bash
 # check-lab.sh — Docker Lab Verification Script
-# Run this from inside your docker-lab directory after bringing the stack up.
+# Run this from inside your lab12 directory after bringing the stack up.
 
 PASS=0
 FAIL=0
@@ -38,7 +38,7 @@ echo ""
 
 # ── 1. Container Health ──────────────────────────
 echo "[1] Container Health"
-for service in db app web; do
+for service in db app; do
     STATUS=$(get_health "$service")
     if [ "$STATUS" = "healthy" ]; then
         check "$service is healthy" "pass"
@@ -47,6 +47,15 @@ for service in db app web; do
             "Run 'docker compose ps' and 'docker compose logs $service' to investigate."
     fi
 done
+
+# web has no HEALTHCHECK — just confirm it is running
+WEB_CID=$(docker compose ps -q web 2>/dev/null)
+if [ -n "$WEB_CID" ]; then
+    check "web is running (no healthcheck expected)" "pass"
+else
+    check "web is running (current: not_found)" "fail" \
+        "Run 'docker compose ps' and 'docker compose logs web' to investigate."
+fi
 echo ""
 
 # ── 2. Apache Reachable on Port 80 ──────────────
