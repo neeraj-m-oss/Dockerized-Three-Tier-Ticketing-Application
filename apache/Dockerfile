@@ -5,6 +5,11 @@ RUN apt-get update && \
     apt-get install -y apache2 && \
     rm -rf /var/lib/apt/lists/*
 
+# Enable proxy modules
+RUN a2enmod proxy proxy_http
+
+# Run Apache in foreground (required for Docker)
+CMD ["apache2ctl", "-D", "FOREGROUND"]
 # YOUR TURN: Enable the two Apache modules that allow it to forward
 # requests to another service (Flask).
 # The command is a2enmod, and the two modules are: proxy and proxy_http

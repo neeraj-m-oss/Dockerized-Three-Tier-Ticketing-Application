@@ -32,3 +32,6 @@ HEALTHCHECK --interval=10s --timeout=5s --retries=3 --start-period=15s \
 # Syntax: CMD ["command", "argument"]
 #
 # CMD ["___________", "___________"]
+copy app.py .
+CMD ["python", "app.py"]
+
