@@ -18,6 +18,4 @@ To verify the application is working correctly, first run docker compose ps and 
 ## Feedback (Optional)
 N/A
 
-## Feedback (Optional)
-
 N/A
