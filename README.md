@@ -1,4 +1,4 @@
-# INET 4031 Lab 12 – Docker Multi-Service Application
+# Docker Multi-Service Application
 
 ## Project Overview
 This lab focuses on learning how to use Docker and Docker Compose to deploy a multi-service application. The system is an IT ticket dashboard made up of three services: Apache2, Flask, and MariaDB. Apache acts as a reverse proxy and is the only service exposed to the outside world. Flask handles the application logic and API requests, while MariaDB stores the ticket data. The goal of this lab is to understand how these services work together in containers and how Docker Compose manages their communication and startup order.
